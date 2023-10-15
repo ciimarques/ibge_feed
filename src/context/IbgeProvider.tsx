@@ -13,7 +13,7 @@ function IbgeProvider({ children }: IbgeProviderProps) {
   useEffect(() => {
     const getData = async () => {
       const data = await fetchFeed();
-      setNoticias(data);
+      setNoticias(data.items);
       console.log(data);
     };
     getData();
