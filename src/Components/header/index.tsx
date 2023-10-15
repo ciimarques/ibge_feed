@@ -1,11 +1,12 @@
-import jornal from '../../image/jornal.png'
+import jornal from '../../image/jornal.png';
+
 function Header() {
-  return(
+  return (
     <>
-    <img src={ jornal } alt="desenho-de-jornal" />
-    <h1>Notícias IBGE Online</h1>
+      <img src={ jornal } alt="desenho-de-jornal" />
+      <h1>Notícias IBGE Online</h1>
     </>
-  )
+  );
 }
 
-export default Header; 
+export default Header;
