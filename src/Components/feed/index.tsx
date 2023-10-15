@@ -6,12 +6,18 @@ function Feed() {
 
   return (
     <div>
-      {ibgeContext.noticias.map((noticia) => (
-        <div key={ noticia.id }>
-          <h2>{ noticia.titulo }</h2>
-          <p>{ noticia.introducao }</p>
-          <p>{ noticia.data_publicacao }</p>
-          <a href={ noticia.link } target="_blank" rel="noopener noreferrer">Leia Mais</a>
+      {ibgeContext.news.slice(1).map((newsArticle) => (
+        <div key={ newsArticle.id }>
+          <h2>{ newsArticle.titulo }</h2>
+          <p>{ newsArticle.introducao }</p>
+          <p>{ newsArticle.data_publicacao }</p>
+          <a
+            href={ newsArticle.link }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Leia Mais
+          </a>
         </div>
       ))}
     </div>

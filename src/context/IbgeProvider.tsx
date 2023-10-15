@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Noticia } from '../type';
+import { News } from '../type';
 import { fetchFeed } from '../service/FetchApi';
 import IbgeContext from './IbgeContext';
 
@@ -8,18 +8,18 @@ type IbgeProviderProps = {
 };
 
 function IbgeProvider({ children }: IbgeProviderProps) {
-  const [noticias, setNoticias] = useState<Noticia[]>([]);
+  const [news, setNews] = useState<News[]>([]);
 
   useEffect(() => {
     const getData = async () => {
       const data = await fetchFeed();
-      setNoticias(data.items);
+      setNews(data.items);
       console.log(data);
     };
     getData();
   }, []);
   const values = {
-    noticias,
+    news,
   };
   return (
     <IbgeContext.Provider value={ values }>

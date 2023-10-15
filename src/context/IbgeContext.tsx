@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { Noticia } from '../type';
+import { News } from '../type';
 
 type IbgeNoticiaContextType = {
-  noticias: Noticia[];
+  news: News[];
 };
 const IbgeContext = createContext({} as IbgeNoticiaContextType);
 

@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import IbgeContext from '../context/IbgeContext';
 import Feed from '../Components/feed/index';
 
-describe('Testa o componente Feed ', () => {
-  test('Renderiza corretamente as notícias', () => {
+describe('Feed component', () => {
+  test('renders news correctly', async () => {
     const fakeNews = [
       {
         id: 1,
@@ -11,6 +11,7 @@ describe('Testa o componente Feed ', () => {
         introducao: 'Introdução 1',
         data_publicacao: '01/01/2023',
         link: 'http://example.com/1',
+        imagens: '',
       },
       {
         id: 2,
@@ -18,21 +19,18 @@ describe('Testa o componente Feed ', () => {
         introducao: 'Introdução 2',
         data_publicacao: '02/02/2023',
         link: 'http://example.com/2',
+        imagens: '',
       },
     ];
     render(
-      <IbgeContext.Provider value={ { noticias: fakeNews } }>
+      <IbgeContext.Provider value={ { news: fakeNews } }>
         <Feed />
       </IbgeContext.Provider>,
     );
-    expect(screen.getByText('Notícia 1')).toBeInTheDocument();
-    expect(screen.getByText('Introdução 1')).toBeInTheDocument();
-    expect(screen.getByText('01/01/2023')).toBeInTheDocument();
     expect(screen.getByText('Notícia 2')).toBeInTheDocument();
     expect(screen.getByText('Introdução 2')).toBeInTheDocument();
     expect(screen.getByText('02/02/2023')).toBeInTheDocument();
     const links = screen.getAllByRole('link');
-    expect(links[0]).toHaveAttribute('href', 'http://example.com/1');
-    expect(links[1]).toHaveAttribute('href', 'http://example.com/2');
+    expect(links[0]).toHaveAttribute('href', 'http://example.com/2');
   });
 });
