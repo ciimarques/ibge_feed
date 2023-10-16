@@ -1,4 +1,5 @@
 import { News } from '../../type';
+import getDaysSincePublication from '../../service/getDaysSincePublication';
 
 type LatesNewsProp = {
   newArticle: News,
@@ -14,7 +15,11 @@ function LatestNewsCard(prop: LatesNewsProp) {
       <img src={ fullImagePath } alt="imagem-noticia-recente" />
       <h2>{ newArticle.titulo }</h2>
       <p>{ newArticle.introducao }</p>
-      <p>{ newArticle.data_publicacao }</p>
+      <p>
+        { 'Publicado há ' }
+        { getDaysSincePublication(newArticle.data_publicacao) }
+        { ' dias' }
+      </p>
       <a href={ newArticle.link } target="_blank" rel="noopener noreferrer">Leia Mais</a>
     </section>
   );

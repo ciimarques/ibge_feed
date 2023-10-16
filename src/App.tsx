@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import './App.css';
 import Header from './Components/header';
 import Feed from './Components/feed';
 import LatestNewsCard from './Components/latestNewsCard';
