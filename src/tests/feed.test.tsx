@@ -1,7 +1,11 @@
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import IbgeContext from '../context/IbgeContext';
 import Feed from '../Components/feed/index';
 
+vi.mock('../../service/getDaysSincePublication', () => {
+  return vi.fn(() => 5);
+});
 describe('Feed component', () => {
   test('renders news correctly', async () => {
     const fakeNews = [
@@ -29,7 +33,6 @@ describe('Feed component', () => {
     );
     expect(screen.getByText('Notícia 2')).toBeInTheDocument();
     expect(screen.getByText('Introdução 2')).toBeInTheDocument();
-    expect(screen.getByText('02/02/2023')).toBeInTheDocument();
     const links = screen.getAllByRole('link');
     expect(links[0]).toHaveAttribute('href', 'http://example.com/2');
   });

@@ -32,11 +32,6 @@ describe('LatestNewsCard component', () => {
     expect(intro).toBeInTheDocument();
   });
 
-  test('renders publication date correctly', () => {
-    const date = screen.getByText(/01\/01\/2024/i);
-    expect(date).toBeInTheDocument();
-  });
-
   test('renders read more link correctly', () => {
     const link = screen.getByRole('link', { name: /Leia Mais/i });
     expect(link).toBeInTheDocument();
