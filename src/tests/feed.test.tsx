@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
 import IbgeContext from '../context/IbgeContext';
-import Feed from '../Components/feed/index';
+import Feed from '../Components/feed';
 
 vi.mock('../../service/getDaysSincePublication', () => {
   return vi.fn(() => 5);
@@ -25,9 +25,21 @@ describe('Feed component', () => {
         link: 'http://example.com/2',
         imagens: '',
       },
-    ];
+    ]
+      const fakeFavorites = [
+        {
+          id: 3,
+          titulo: 'Notícia Favorita',
+          introducao: 'Introdução Favorita',
+          data_publicacao: '03/03/2023',
+          link: 'http://example.com/3',
+          imagens: '',
+        },
+      ];
+      
+      const setFakeFavorites = vi.fn();
     render(
-      <IbgeContext.Provider value={ { news: fakeNews } }>
+      <IbgeContext.Provider value={ { news: fakeNews, favorites: fakeFavorites, setFavorites: setFakeFavorites } }>
         <Feed />
       </IbgeContext.Provider>,
     );

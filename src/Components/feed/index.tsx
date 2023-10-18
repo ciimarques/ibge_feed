@@ -1,28 +1,21 @@
-import { useContext } from 'react';
-import IbgeContext from '../../context/IbgeContext';
-import getDaysSincePublication from '../../service/getDaysSincePublication';
+import { useContext } from "react";
+import useIbgeData from "../../context/UseIbgeData";
+import { News } from "../../type";
+import CardNews from "../CardNews";
+import IbgeContext from "../../context/IbgeContext";
+
 
 function Feed() {
   const ibgeContext = useContext(IbgeContext);
+  const { favorites } = useIbgeData();
+
+  const isFavorite = (newsArticle: News) => favorites.some((fav:News) => fav.id === newsArticle.id);
+    
+
   return (
     <div>
-      {ibgeContext.news.slice(1).map((newsArticle) => (
-        <div key={ newsArticle.id }>
-          <h2>{ newsArticle.titulo }</h2>
-          <p>{ newsArticle.introducao }</p>
-          <p>
-            { 'Publicado há ' }
-            { getDaysSincePublication(newsArticle.data_publicacao) }
-            { ' dias' }
-          </p>
-          <a
-            href={ newsArticle.link }
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Leia Mais
-          </a>
-        </div>
+      {ibgeContext.news.slice(1).map((newsArticle: News) => (
+        <CardNews key={newsArticle.id} newsArticle={ newsArticle } isFavorite={ isFavorite(newsArticle)} />
       ))}
     </div>
   );

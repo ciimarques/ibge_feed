@@ -1,4 +1,4 @@
-import jornal from '../../image/jornal.png';
+import jornal from '../../images/jornal.png';
 
 function Header() {
   return (

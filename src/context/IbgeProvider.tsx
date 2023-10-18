@@ -9,6 +9,9 @@ type IbgeProviderProps = {
 
 function IbgeProvider({ children }: IbgeProviderProps) {
   const [news, setNews] = useState<News[]>([]);
+  const [favorites, setFavorites] = useState<News[]>(
+    JSON.parse(localStorage.getItem('favorites') || '[]')
+  );
 
   useEffect(() => {
     const getData = async () => {
@@ -18,8 +21,13 @@ function IbgeProvider({ children }: IbgeProviderProps) {
     };
     getData();
   }, []);
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
   const values = {
     news,
+    favorites,
+    setFavorites,
   };
   return (
     <IbgeContext.Provider value={ values }>
