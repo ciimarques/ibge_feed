@@ -36,9 +36,18 @@ describe('Feed component', () => {
         imagens: '',
       },
     ];
+    const fakeTitle = '';
     const setFakeFavorites = vi.fn();
+    const setFakeTitle = vi.fn();
+    const values = {
+      news: fakeNews,
+      favorites: fakeFavorites,
+      setFavorites: setFakeFavorites,
+      filterTitle: fakeTitle,
+      setFilterTitle: setFakeTitle,
+    };
     render(
-      <IbgeContext.Provider value={ { news: fakeNews, favorites: fakeFavorites, setFavorites: setFakeFavorites } }>
+      <IbgeContext.Provider value={ values }>
         <Feed />
       </IbgeContext.Provider>,
     );

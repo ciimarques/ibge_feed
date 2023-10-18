@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import CardNews from '../Components/CardNews/index';
+import CardNews from '../Components/cardNews/index';
 import { News } from '../type';
 
 vi.mock('../context/UseIbgeData', () => ({

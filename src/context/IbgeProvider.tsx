@@ -12,6 +12,7 @@ function IbgeProvider({ children }: IbgeProviderProps) {
   const [favorites, setFavorites] = useState<News[]>(
     JSON.parse(localStorage.getItem('favorites') || '[]'),
   );
+  const [filterTitle, setFilterTitle] = useState('');
 
   useEffect(() => {
     const getData = async () => {
@@ -28,6 +29,8 @@ function IbgeProvider({ children }: IbgeProviderProps) {
     news,
     favorites,
     setFavorites,
+    filterTitle,
+    setFilterTitle,
   };
   return (
     <IbgeContext.Provider value={ values }>

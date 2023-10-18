@@ -1,15 +1,17 @@
 import useIbgeData from '../../context/useIbgeData';
 import { News } from '../../type';
-import CardNews from '../CardNews';
+import CardNews from '../cardNews';
 
 function Feed() {
-  const { news, favorites } = useIbgeData();
+  const { news, favorites, filterTitle } = useIbgeData();
   const isFavorite = (newsArticle: News) => favorites
     .some((fav:News) => fav.id === newsArticle.id);
-
+  const filteredNews = news.filter((article) => (
+    article.titulo.toLowerCase().includes(filterTitle.toLowerCase())
+  ));
   return (
     <div>
-      { news.slice(1).map((newsArticle: News) => (
+      { filteredNews.slice(1).map((newsArticle: News) => (
         <CardNews
           key={ newsArticle.id }
           newsArticle={ newsArticle }
