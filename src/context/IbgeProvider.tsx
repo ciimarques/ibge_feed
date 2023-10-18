@@ -10,7 +10,7 @@ type IbgeProviderProps = {
 function IbgeProvider({ children }: IbgeProviderProps) {
   const [news, setNews] = useState<News[]>([]);
   const [favorites, setFavorites] = useState<News[]>(
-    JSON.parse(localStorage.getItem('favorites') || '[]')
+    JSON.parse(localStorage.getItem('favorites') || '[]'),
   );
 
   useEffect(() => {

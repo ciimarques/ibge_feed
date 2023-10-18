@@ -25,19 +25,18 @@ describe('Feed component', () => {
         link: 'http://example.com/2',
         imagens: '',
       },
-    ]
-      const fakeFavorites = [
-        {
-          id: 3,
-          titulo: 'Notícia Favorita',
-          introducao: 'Introdução Favorita',
-          data_publicacao: '03/03/2023',
-          link: 'http://example.com/3',
-          imagens: '',
-        },
-      ];
-      
-      const setFakeFavorites = vi.fn();
+    ];
+    const fakeFavorites = [
+      {
+        id: 3,
+        titulo: 'Notícia Favorita',
+        introducao: 'Introdução Favorita',
+        data_publicacao: '03/03/2023',
+        link: 'http://example.com/3',
+        imagens: '',
+      },
+    ];
+    const setFakeFavorites = vi.fn();
     render(
       <IbgeContext.Provider value={ { news: fakeNews, favorites: fakeFavorites, setFavorites: setFakeFavorites } }>
         <Feed />
