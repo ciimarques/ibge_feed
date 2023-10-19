@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { News } from '../type';
+import { News } from '../types';
 import { fetchFeed } from '../service/FetchApi';
 import IbgeContext from './IbgeContext';
 
@@ -13,7 +13,8 @@ function IbgeProvider({ children }: IbgeProviderProps) {
     JSON.parse(localStorage.getItem('favorites') || '[]'),
   );
   const [filterTitle, setFilterTitle] = useState('');
-
+  const [filterType, setFilterType] = useState<null | string>(null);
+  const [filterFavorites, setFilterFavorites] = useState<null | boolean >(null);
   useEffect(() => {
     const getData = async () => {
       const data = await fetchFeed();
@@ -31,6 +32,10 @@ function IbgeProvider({ children }: IbgeProviderProps) {
     setFavorites,
     filterTitle,
     setFilterTitle,
+    filterType,
+    setFilterType,
+    filterFavorites,
+    setFilterFavorites,
   };
   return (
     <IbgeContext.Provider value={ values }>

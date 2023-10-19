@@ -11,6 +11,7 @@ describe('Feed component', () => {
     const fakeNews = [
       {
         id: 1,
+        tipo: 'noticia',
         titulo: 'Notícia 1',
         introducao: 'Introdução 1',
         data_publicacao: '01/01/2023',
@@ -19,6 +20,7 @@ describe('Feed component', () => {
       },
       {
         id: 2,
+        tipo: 'noticia',
         titulo: 'Notícia 2',
         introducao: 'Introdução 2',
         data_publicacao: '02/02/2023',
@@ -29,6 +31,7 @@ describe('Feed component', () => {
     const fakeFavorites = [
       {
         id: 3,
+        tipo: 'noticia',
         titulo: 'Notícia Favorita',
         introducao: 'Introdução Favorita',
         data_publicacao: '03/03/2023',
@@ -37,14 +40,22 @@ describe('Feed component', () => {
       },
     ];
     const fakeTitle = '';
+    const fakeTypes = '';
+    const fakeFilterFavorites = false;
     const setFakeFavorites = vi.fn();
     const setFakeTitle = vi.fn();
+    const setFakeType = vi.fn();
+    const setFakeFilterFavorites = vi.fn();
     const values = {
       news: fakeNews,
       favorites: fakeFavorites,
       setFavorites: setFakeFavorites,
       filterTitle: fakeTitle,
       setFilterTitle: setFakeTitle,
+      filterType: fakeTypes,
+      setFilterType: setFakeType,
+      filterFavorites: fakeFilterFavorites,
+      setFilterFavorites: setFakeFilterFavorites,
     };
     render(
       <IbgeContext.Provider value={ values }>

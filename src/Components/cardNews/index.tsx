@@ -2,7 +2,7 @@ import getDaysSincePublication from '../../service/getDaysSincePublication';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../../images/blackHeartIcon.svg';
 import useIbgeData from '../../context/useIbgeData';
-import { News } from '../../type';
+import { News } from '../../types';
 
 type CardNewsProps = {
   newsArticle: News,

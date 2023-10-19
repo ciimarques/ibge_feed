@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import CardNews from '../Components/cardNews/index';
-import { News } from '../type';
+import { News } from '../types';
 
 vi.mock('../context/UseIbgeData', () => ({
   useIbgeData: () => ({
@@ -23,6 +23,7 @@ beforeEach(() => {
 
   mockNews = {
     id: 1,
+    tipo: 'noticia',
     titulo: 'Test Title',
     introducao: 'Test Introduction',
     data_publicacao: '2021-01-01',

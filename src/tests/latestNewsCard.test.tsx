@@ -4,6 +4,7 @@ import LatestNewsCard from '../Components/latestNewsCard/index';
 describe('LatestNewsCard component', () => {
   const fakeArticle = {
     id: 1,
+    tipo: 'noticia',
     titulo: 'Título de Teste',
     introducao: 'Introdução de Teste',
     data_publicacao: '01/01/2024',
