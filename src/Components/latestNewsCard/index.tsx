@@ -30,7 +30,7 @@ function LatestNewsCard(prop: LatesNewsProp) {
 
   return (
     <section
-      className="grid p-3 sm:grid-cols-1 lg:grid-cols-2
+      className="grid m-3 p-3 sm:grid-cols-1 lg:grid-cols-2
                 gap-4 rounded-2xl shadow-lg bg-gray-200"
     >
       <img
