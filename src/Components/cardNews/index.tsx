@@ -35,21 +35,23 @@ function CardNews(Props: CardNewsProps) {
       <p className="w-full text-sm">
         { getDaysSincePublication(newsArticle.data_publicacao) }
       </p>
-      <a
-        className="text-indigo-500 px-4 py-3 bg-gray-300 rounded
-        hover:bg-indigo-500 hover:text-white transition duration-300"
-        href={ newsArticle.link }
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Leia Mais
-      </a>
-      <input
-        src={ heartIcon }
-        type="image"
-        onClick={ toggleFavorite }
-        alt={ altText }
-      />
+      <div className="flex space-between flex-end">
+        <a
+          className="text-indigo-500 px-4 py-3 bg-gray-300 rounded
+          hover:bg-indigo-500 hover:text-white transition duration-300"
+          href={ newsArticle.link }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Leia Mais
+        </a>
+        <input
+          src={ heartIcon }
+          type="image"
+          onClick={ toggleFavorite }
+          alt={ altText }
+        />
+      </div>
     </article>
   );
 }
