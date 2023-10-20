@@ -35,7 +35,7 @@ function CardNews(Props: CardNewsProps) {
       <p className="w-full text-sm">
         { getDaysSincePublication(newsArticle.data_publicacao) }
       </p>
-      <div className="flex space-between flex-end">
+      <div className="flex flex-row flex-nowrap justify-between">
         <a
           className="text-indigo-500 px-4 py-3 bg-gray-300 rounded
           hover:bg-indigo-500 hover:text-white transition duration-300"
