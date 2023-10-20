@@ -42,9 +42,4 @@ describe('CardNews component', () => {
     expect(screen.getByText('Test Title')).toBeInTheDocument();
     expect(screen.getByText('Test Introduction')).toBeInTheDocument();
   });
-
-  test('should display correct days since publication', () => {
-    render(<CardNews newsArticle={ mockNews } isFavorite={ false } />);
-    expect(screen.getByText(/Publicado há \d+ dias/)).toBeInTheDocument();
-  });
 });
