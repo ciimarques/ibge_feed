@@ -10,16 +10,25 @@ function LatestNewsCard(prop: LatesNewsProp) {
   const imagesObject = JSON.parse(newArticle.imagens);
   const imageIntroPath = imagesObject.image_intro;
   const fullImagePath = `https://agenciadenoticias.ibge.gov.br/${imageIntroPath}`;
+
   return (
-    <section>
+    <section className="bg-white p-10 rounded-2xl shadow-lg">
       <img src={ fullImagePath } alt="imagem-noticia-recente" />
-      <h2>{ newArticle.titulo }</h2>
-      <p>{ newArticle.introducao }</p>
-      <p>
-        { getDaysSincePublication(newArticle.data_publicacao) }
-        { ' dias atrás' }
-      </p>
-      <a href={ newArticle.link } target="_blank" rel="noopener noreferrer">Leia Mais</a>
+      <div>
+        <p>Notícia mais recente</p>
+        <h2 className="text-6lg mb-10">{ newArticle.titulo }</h2>
+        <p>{ newArticle.introducao }</p>
+        <p>
+          { getDaysSincePublication(newArticle.data_publicacao) }
+        </p>
+        <a
+          href={ newArticle.link }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Leia Mais
+        </a>
+      </div>
     </section>
   );
 }

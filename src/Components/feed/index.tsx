@@ -15,7 +15,7 @@ function Feed() {
   });
 
   return (
-    <div>
+    <main className="grid p-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       { filteredNews.slice(1).map((newsArticle: News) => (
         <CardNews
           key={ newsArticle.id }
@@ -23,7 +23,7 @@ function Feed() {
           isFavorite={ isFavorite(newsArticle) }
         />
       ))}
-    </div>
+    </main>
   );
 }
 

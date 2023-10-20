@@ -11,6 +11,7 @@ type CardNewsProps = {
 
 function CardNews(Props: CardNewsProps) {
   const { newsArticle, isFavorite } = Props;
+
   const { favorites, setFavorites } = useIbgeData();
   const heartIcon = favorites?.some((fav) => fav.id === newsArticle.id)
     ? blackHeartIcon
@@ -24,15 +25,19 @@ function CardNews(Props: CardNewsProps) {
     }
   };
   return (
-    <div>
-      <h2>{ newsArticle.titulo }</h2>
-      <p>{ newsArticle.introducao }</p>
-      <p>
-        { 'Publicado há ' }
+    <article className="p-5 rounded-2xl shadow-lg bg-gray-200">
+      <h2 className="font-bold text-1xl mb-2 text-center">{ newsArticle.titulo }</h2>
+      <p
+        className="text-gray-800 mb-2 leading-relaxed text-justify"
+      >
+        { newsArticle.introducao }
+      </p>
+      <p className="w-full text-sm">
         { getDaysSincePublication(newsArticle.data_publicacao) }
-        { ' dias' }
       </p>
       <a
+        className="text-indigo-500 px-4 py-3 bg-gray-300 rounded
+        hover:bg-indigo-500 hover:text-white transition duration-300"
         href={ newsArticle.link }
         target="_blank"
         rel="noopener noreferrer"
@@ -45,7 +50,7 @@ function CardNews(Props: CardNewsProps) {
         onClick={ toggleFavorite }
         alt={ altText }
       />
-    </div>
+    </article>
   );
 }
 

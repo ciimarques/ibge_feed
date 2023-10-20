@@ -13,7 +13,6 @@ function App() {
       { ibgeContext.news[0] && <LatestNewsCard newArticle={ ibgeContext.news[0] } /> }
       <SearchBar />
       <Feed />
-
     </div>
   );
 }
