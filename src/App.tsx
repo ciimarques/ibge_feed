@@ -8,12 +8,19 @@ import SearchBar from './Components/SearchBar';
 function App() {
   const ibgeContext = useContext(IbgeContext);
   return (
-    <div>
+    <main>
       <Header />
-      { ibgeContext.news[0] && <LatestNewsCard newArticle={ ibgeContext.news[0] } /> }
-      <SearchBar />
-      <Feed />
-    </div>
+      <section aria-label="Latest News">
+        { ibgeContext.news[0] && <LatestNewsCard newArticle={ ibgeContext.news[0] } /> }
+      </section>
+      <aside>
+        <SearchBar />
+      </aside>
+      <section aria-label="Feed">
+        <Feed />
+      </section>
+    </main>
   );
 }
+
 export default App;
