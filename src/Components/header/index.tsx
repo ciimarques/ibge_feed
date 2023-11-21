@@ -9,7 +9,7 @@ function Header() {
         alt="desenho-de-jornal"
       />
       <h1
-        className="font-bold sm:text-5xl lg:text-7xl w-full mb-2 text-center text-white "
+        className="font-bold sm:text-5xl lg:text-7xl w-full mb-2 text-center text-white"
       >
         Tribuna Online
       </h1>
