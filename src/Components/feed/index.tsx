@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import useIbgeData from '../../context/useIbgeData';
 import { News } from '../../types';
 import CardNews from '../cardNews';
